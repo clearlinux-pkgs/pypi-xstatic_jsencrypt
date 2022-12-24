@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_jsencrypt
 Version  : 2.3.1.1
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/5d/ca/6afa08ed3cedc2d612ec3e21facf664642b7135d26b4212ef5fd90bebadc/XStatic-JSEncrypt-2.3.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5d/ca/6afa08ed3cedc2d612ec3e21facf664642b7135d26b4212ef5fd90bebadc/XStatic-JSEncrypt-2.3.1.1.tar.gz
 Summary  : JSEncrypt 2.3.1 (XStatic packaging standard)
@@ -51,6 +51,7 @@ python3 components for the pypi-xstatic_jsencrypt package.
 cd %{_builddir}/XStatic-JSEncrypt-2.3.1.1
 pushd ..
 cp -a XStatic-JSEncrypt-2.3.1.1 buildavx2
+cp -a XStatic-JSEncrypt-2.3.1.1 buildavx512
 popd
 
 %build
@@ -58,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669969975
+export SOURCE_DATE_EPOCH=1671855160
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -71,8 +72,8 @@ export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -87,7 +88,7 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
