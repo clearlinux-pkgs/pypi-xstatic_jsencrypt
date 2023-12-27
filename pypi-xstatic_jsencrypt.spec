@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_jsencrypt
 Version  : 2.3.1.1
-Release  : 7
+Release  : 8
 URL      : https://files.pythonhosted.org/packages/5d/ca/6afa08ed3cedc2d612ec3e21facf664642b7135d26b4212ef5fd90bebadc/XStatic-JSEncrypt-2.3.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5d/ca/6afa08ed3cedc2d612ec3e21facf664642b7135d26b4212ef5fd90bebadc/XStatic-JSEncrypt-2.3.1.1.tar.gz
 Summary  : JSEncrypt 2.3.1 (XStatic packaging standard)
